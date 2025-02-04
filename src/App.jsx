@@ -1,35 +1,82 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useAuthStore } from "./store/useAuthStore";
+import LoginPage from "./pages/LoginPage";
+import AdminLayout from "./layouts/AdminLayout";
+import PropTypes from "prop-types";
+import CMSPage from "./pages/CMSPage";
+import ProductPage from "./pages/ProductPage";
+import DashboardPage from "./pages/DashboardPage";
+import UserPage from "./pages/UserPage";
+import EditProductPage from "./pages/EditProductPage";
+import PaymentPage from "./pages/PaymentPage";
+import AddProductPage from "./pages/AddProductPage";
+import UserPaymentPage from "./pages/UserPaymentPage";
+import UserCartPage from "./pages/UserCartPage";
+
+const ProtectedRoute = ({ children }) => {
+    const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+
+    return isAuthenticated ? children : <Navigate to="/login" />;
+};
 
 function App() {
-  const [count, setCount] = useState(0)
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/login" element={<LoginPage />} />
+                <Route
+                    path="/*"
+                    element={
+                        <ProtectedRoute>
+                            <AdminLayout>
+                                <Routes>
+                                    <Route
+                                        path="/dashboard"
+                                        element={<DashboardPage />}
+                                    />
+                                    <Route
+                                        path="/products"
+                                        element={<ProductPage />}
+                                    />
+                                    <Route
+                                        path="/edit-product/:id"
+                                        element={<EditProductPage />}
+                                    />
+                                    <Route path="/cms" element={<CMSPage />} />
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p className="text-4xl">
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+                                    <Route
+                                        path="/customers"
+                                        element={<UserPage />}
+                                    />
+                                    <Route
+                                        path="/payments"
+                                        element={<PaymentPage />}
+                                    />
+                                    <Route
+                                        path="/add-product"
+                                        element={<AddProductPage />}
+                                    />
+                                    <Route
+                                        path="/user-payment/:userId"
+                                        element={<UserPaymentPage />}
+                                    />
+                                    <Route
+                                        path="/user-cart/:userId"
+                                        element={<UserCartPage />}
+                                    />
+                                </Routes>
+                            </AdminLayout>
+                        </ProtectedRoute>
+                    }
+                />
+                <Route path="/" element={<Navigate to="/dashboard" />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
-export default App
+ProtectedRoute.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+
+export default App;
