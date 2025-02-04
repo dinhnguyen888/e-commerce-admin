@@ -36,7 +36,7 @@ const UploadWidget: React.FC<UploadWidgetProps> = ({ onUpload }) => {
 
     return (
         <Button type="primary" onClick={openWidget}>
-            Upload File
+            Tải lên tệp
         </Button>
     );
 };

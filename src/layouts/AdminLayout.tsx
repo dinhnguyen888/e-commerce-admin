@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { Layout, Menu, theme, Button, Avatar, Dropdown, Badge } from "antd";
+import {
+    Layout,
+    Menu,
+    theme,
+    Button,
+    Avatar,
+    Dropdown,
+    Badge,
+    message,
+} from "antd";
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
@@ -31,17 +40,20 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         navigate("/login");
     };
 
+    const handleLClick = () => {
+        message.info("Sắp ra mắt");
+    };
     const items = [
         {
             key: "dashboard",
             icon: <DashboardOutlined />,
-            label: "Dashboard",
+            label: "Bảng điều khiển",
             onClick: () => navigate("/dashboard"),
         },
         {
             key: "products",
             icon: <ShoppingOutlined />,
-            label: "Products",
+            label: "Sản phẩm",
             onClick: () => navigate("/products"),
         },
         {
@@ -53,46 +65,36 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         {
             key: "payments",
             icon: <CreditCardOutlined />,
-            label: "Payments",
+            label: "Thanh toán",
             onClick: () => navigate("/payments"),
         },
         {
             key: "customers",
             icon: <UserOutlined />,
-            label: "Customers",
+            label: "Khách hàng",
             onClick: () => navigate("/customers"),
-        },
-        {
-            key: "cart",
-            icon: <ShoppingCartOutlined />,
-            label: "Shopping Cart",
-            onClick: () => navigate("/cart"),
-        },
-        {
-            key: "settings",
-            icon: <SettingOutlined />,
-            label: "Settings",
-            onClick: () => navigate("/settings"),
         },
     ];
 
     const userMenuItems: any[] = [
         {
             key: "profile",
-            label: "Profile",
+            label: "Hồ sơ",
             icon: <UserOutlined />,
+            onClick: handleLClick,
         },
         {
             key: "settings",
-            label: "Settings",
+            label: "Cài đặt",
             icon: <SettingOutlined />,
+            onClick: handleLClick,
         },
         {
             type: "divider",
         },
         {
             key: "logout",
-            label: "Logout",
+            label: "Đăng xuất",
             icon: <LogoutOutlined />,
             onClick: handleLogout,
         },
@@ -103,7 +105,7 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <Sider trigger={null} collapsible collapsed={collapsed}>
                 <div className="demo-logo-vertical p-4">
                     <h1 className="text-white text-xl font-bold text-center">
-                        {!collapsed && "Admin"}
+                        {!collapsed && "Quản trị"}
                     </h1>
                 </div>
                 <Menu
@@ -132,8 +134,11 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                         className="text-xl"
                     />
                     <div className="flex items-center gap-4">
-                        <Badge count={5}>
-                            <BellOutlined className="text-xl cursor-pointer" />
+                        <Badge count={1}>
+                            <BellOutlined
+                                className="text-xl cursor-pointer"
+                                onClick={handleLClick}
+                            />
                         </Badge>
                         <Dropdown
                             menu={{ items: userMenuItems }}
@@ -141,7 +146,7 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                         >
                             <div className="flex items-center mr-20 gap-2 cursor-pointer">
                                 <Avatar icon={<UserOutlined />} />
-                                <span>Admin</span>
+                                <span>Quản trị viên</span>
                             </div>
                         </Dropdown>
                     </div>

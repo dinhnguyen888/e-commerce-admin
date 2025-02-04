@@ -23,10 +23,10 @@ const UserCartPage: React.FC = () => {
                 const data = await getCartByUserId(userId);
                 setCartItems(data);
             } else {
-                message.error("User ID is not defined");
+                message.error("ID người dùng không xác định");
             }
         } catch (error) {
-            message.error("Failed to fetch cart items");
+            message.error("Không thể lấy dữ liệu giỏ hàng");
         } finally {
             setLoading(false);
         }
@@ -46,40 +46,40 @@ const UserCartPage: React.FC = () => {
             if (userId) {
                 await clearCart(userId);
             } else {
-                message.error("User ID is not defined");
+                message.error("ID người dùng không xác định");
             }
             setCartItems([]);
-            message.success("Cart cleared successfully");
+            message.success("Xóa giỏ hàng thành công");
         } catch (error) {
-            message.error("Failed to clear cart");
+            message.error("Không thể xóa giỏ hàng");
         }
     };
 
     const columns = [
         {
-            title: "Product Name",
+            title: "Tên sản phẩm",
             dataIndex: "productName",
             key: "productName",
         },
         {
-            title: "Description",
+            title: "Mô tả",
             dataIndex: "productDescription",
             key: "productDescription",
         },
         {
-            title: "Price",
+            title: "Giá",
             dataIndex: "price",
             key: "price",
             render: (price: number) => `$${price.toFixed(2)}`,
         },
         {
-            title: "Added At",
+            title: "Thêm vào lúc",
             dataIndex: "addToCartAt",
             key: "addToCartAt",
             render: (date: string) => new Date(date).toLocaleString(),
         },
         {
-            title: "Actions",
+            title: "Hành động",
             key: "actions",
             render: (_: any, record: Cart) => (
                 <Space>
@@ -91,7 +91,7 @@ const UserCartPage: React.FC = () => {
                             setIsDeleteModalVisible(true);
                         }}
                     >
-                        Remove
+                        Xóa
                     </Button>
                 </Space>
             ),
@@ -102,11 +102,14 @@ const UserCartPage: React.FC = () => {
         <div className="p-6">
             <Card>
                 <div className="flex justify-between mb-4">
-                    <Button onClick={() => navigate("/users")}>
-                        Back to Users
+                    <Button
+                        onClick={() => navigate("/customers")}
+                        type="primary"
+                    >
+                        Quay lại người dùng
                     </Button>
                     <Button type="primary" onClick={handleClearCart}>
-                        Clear Cart
+                        Xóa giỏ hàng
                     </Button>
                 </div>
                 <Table

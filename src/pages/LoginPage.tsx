@@ -29,10 +29,11 @@ const LoginPage: React.FC = () => {
                 <div className="flex flex-col items-center mb-8">
                     <ShoppingOutlined className="text-4xl text-blue-600 mb-4" />
                     <Title level={2} className="text-center m-0">
-                        Admin Login
+                        Đăng nhập quản trị
                     </Title>
                     <p className="text-gray-500 mt-2">
-                        Welcome back! Please login to your account.
+                        Chào mừng trở lại! Vui lòng đăng nhập vào tài khoản của
+                        bạn.
                     </p>
                 </div>
 
@@ -51,7 +52,7 @@ const LoginPage: React.FC = () => {
                     <div className="relative">
                         <LockOutlined className="absolute left-3 top-3 text-gray-400" />
                         <Input.Password
-                            placeholder="Password"
+                            placeholder="Mật khẩu"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className="pl-10 h-12 w-full rounded-md border-gray-200 hover:border-blue-500 transition-colors"
@@ -61,9 +62,9 @@ const LoginPage: React.FC = () => {
                     <LoginButton email={email} password={password} />
 
                     <p className="text-center text-sm text-gray-500 mt-4">
-                        Forgot your password?{" "}
+                        Quên mật khẩu?{" "}
                         <a href="#" className="text-blue-600 hover:underline">
-                            Reset here
+                            Đặt lại tại đây
                         </a>
                     </p>
                 </div>

@@ -37,7 +37,7 @@ const UserPage: React.FC = () => {
             const data = await getAllAccounts(accessToken || "");
             setAccounts(data);
         } catch (error) {
-            message.error("Failed to fetch accounts");
+            message.error("Không thể lấy dữ liệu tài khoản");
         } finally {
             setLoading(false);
         }
@@ -48,9 +48,9 @@ const UserPage: React.FC = () => {
             const newUser = await createAccount(values, accessToken);
             setAccounts([...accounts, newUser]);
             setIsAddModalVisible(false);
-            message.success("User added successfully");
+            message.success("Thêm người dùng thành công");
         } catch (error) {
-            message.error("Failed to add user");
+            message.error("Không thể thêm người dùng");
         }
     };
 
@@ -68,9 +68,9 @@ const UserPage: React.FC = () => {
                     )
                 );
                 setIsUpdateModalVisible(false);
-                message.success("User updated successfully");
+                message.success("Cập nhật người dùng thành công");
             } catch (error) {
-                message.error("Failed to update user");
+                message.error("Không thể cập nhật người dùng");
             }
         }
     };
@@ -82,9 +82,9 @@ const UserPage: React.FC = () => {
                 const data = await getAllAccounts(accessToken || "");
                 setAccounts(data);
                 setIsDeleteModalVisible(false);
-                message.success("User deleted successfully");
+                message.success("Xóa người dùng thành công");
             } catch (error) {
-                message.error("Failed to delete user");
+                message.error("Không thể xóa người dùng");
             }
         }
     };
@@ -107,7 +107,7 @@ const UserPage: React.FC = () => {
             width: "10%",
         },
         {
-            title: "Name",
+            title: "Tên",
             dataIndex: "name",
             key: "name",
             width: "20%",
@@ -119,7 +119,7 @@ const UserPage: React.FC = () => {
             width: "30%",
         },
         {
-            title: "Role",
+            title: "Vai trò",
             dataIndex: "roleName",
             key: "roleId",
             width: "10%",
@@ -128,7 +128,7 @@ const UserPage: React.FC = () => {
             ),
         },
         {
-            title: "View",
+            title: "Xem",
             key: "view",
             align: "center" as "center",
             width: "15%",
@@ -143,7 +143,7 @@ const UserPage: React.FC = () => {
                         }}
                         onClick={() => navigate(`/user-cart/${record.id}`)}
                     >
-                        Cart
+                        Giỏ hàng
                     </Button>
                     <Button
                         type="primary"
@@ -154,13 +154,13 @@ const UserPage: React.FC = () => {
                         }}
                         onClick={() => navigate(`/user-payment/${record.id}`)}
                     >
-                        Payment
+                        Thanh toán
                     </Button>
                 </Space>
             ),
         },
         {
-            title: "Actions",
+            title: "Hành động",
             key: "actions",
             align: "center" as "center",
             width: "15%",
@@ -173,7 +173,7 @@ const UserPage: React.FC = () => {
                             setIsUpdateModalVisible(true);
                         }}
                     >
-                        Edit
+                        Sửa
                     </Button>
                     <Button
                         type="link"
@@ -183,7 +183,7 @@ const UserPage: React.FC = () => {
                             setIsDeleteModalVisible(true);
                         }}
                     >
-                        Delete
+                        Xóa
                     </Button>
                 </Space>
             ),
@@ -195,7 +195,7 @@ const UserPage: React.FC = () => {
             <Card>
                 <div className="flex justify-between mb-4">
                     <Search
-                        placeholder="Search users"
+                        placeholder="Tìm kiếm người dùng"
                         prefix={<SearchOutlined />}
                         style={{ width: 300 }}
                         onSearch={handleSearch}
@@ -205,7 +205,7 @@ const UserPage: React.FC = () => {
                         icon={<PlusOutlined />}
                         onClick={() => setIsAddModalVisible(true)}
                     >
-                        Add User
+                        Thêm người dùng
                     </Button>
                 </div>
                 <Table

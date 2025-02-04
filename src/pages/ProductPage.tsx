@@ -27,7 +27,7 @@ const ProductPage: React.FC = () => {
                 const data = await getAllProducts(page, pageSize);
                 if (Array.isArray(data)) {
                     setProducts(data);
-                    console.log("Products:", data);
+                    console.log("Sản phẩm:", data);
                 } else {
                     console.error("Expected an array but got:", data);
                 }

@@ -24,7 +24,7 @@ const UserPaymentPage: React.FC = () => {
             const data = await getAllPayments();
             setPayments(data.filter((payment) => payment.userId === userId));
         } catch (error) {
-            message.error("Failed to fetch payments");
+            message.error("Không thể lấy dữ liệu thanh toán");
         } finally {
             setLoading(false);
         }
@@ -46,72 +46,75 @@ const UserPaymentPage: React.FC = () => {
             key: "id",
         },
         {
-            title: "Product Pay",
+            title: "Thanh toán sản phẩm",
             dataIndex: "productPay",
             key: "productPay",
         },
         {
-            title: "Product ID",
+            title: "ID sản phẩm",
             dataIndex: "productId",
             key: "productId",
         },
         {
-            title: "User ID",
+            title: "ID người dùng",
             dataIndex: "userId",
             key: "userId",
         },
         {
-            title: "Payment Gateway",
+            title: "Cổng thanh toán",
             dataIndex: "paymentGateway",
             key: "paymentGateway",
         },
         {
-            title: "Product Price",
+            title: "Giá sản phẩm",
             dataIndex: "productPrice",
             key: "productPrice",
             render: (price: number) => `$${price.toFixed(2)}`,
         },
         {
-            title: "Payment Date",
+            title: "Ngày thanh toán",
             dataIndex: "paymentDate",
             key: "paymentDate",
         },
         {
-            title: "Payment Status",
+            title: "Trạng thái thanh toán",
             dataIndex: "paymentStatus",
             key: "paymentStatus",
             render: (status: boolean) => (
                 <Tag color={status ? "green" : "red"}>
-                    {status ? "Completed" : "Pending"}
+                    {status ? "Hoàn thành" : "Đang chờ"}
                 </Tag>
             ),
         },
-        {
-            title: "Actions",
-            key: "actions",
-            render: (_: any, record: Payment) => (
-                <Space>
-                    <Button
-                        type="link"
-                        danger
-                        onClick={() => {
-                            setSelectedPayment(record);
-                            setIsDeleteModalVisible(true);
-                        }}
-                    >
-                        Delete
-                    </Button>
-                </Space>
-            ),
-        },
+        // {
+        //     title: "Hành động",
+        //     key: "actions",
+        //     render: (_: any, record: Payment) => (
+        //         <Space>
+        //             <Button
+        //                 type="link"
+        //                 danger
+        //                 onClick={() => {
+        //                     setSelectedPayment(record);
+        //                     setIsDeleteModalVisible(true);
+        //                 }}
+        //             >
+        //                 Xóa
+        //             </Button>
+        //         </Space>
+        //     ),
+        // },
     ];
 
     return (
         <div className="p-6">
             <Card>
                 <div className="flex justify-between mb-4">
-                    <Button onClick={() => navigate("/users")}>
-                        Back to Users
+                    <Button
+                        onClick={() => navigate("/customers")}
+                        type="primary"
+                    >
+                        Quay lại người dùng
                     </Button>
                 </div>
                 <Table
