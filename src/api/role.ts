@@ -2,7 +2,7 @@ import axios from "axios";
 import { Role, RolePostDto, RoleUpdateDto } from "../entities/role";
 import { getAccessToken } from "../store/useAuthStore";
 
-const BASE_URL = "http://174.138.22.1/api";
+const BASE_URL = "/api"; // Sử dụng HTTPS
 
 const getAuthHeaders = () => {
     const token = getAccessToken();

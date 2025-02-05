@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useAuthStore } from "../store/useAuthStore";
 
-const API_URL = "http://174.138.22.1/api/";
+const API_URL = "/api/";
 
 export async function adminLogin(email: string, password: string) {
     try {
