@@ -12,6 +12,7 @@ import PaymentPage from "./pages/PaymentPage";
 import AddProductPage from "./pages/AddProductPage";
 import UserPaymentPage from "./pages/UserPaymentPage";
 import UserCartPage from "./pages/UserCartPage";
+import RolePage from "./pages/RolePage";
 
 const ProtectedRoute = ({ children }) => {
     const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
@@ -63,6 +64,10 @@ function App() {
                                     <Route
                                         path="/user-cart/:userId"
                                         element={<UserCartPage />}
+                                    />
+                                    <Route
+                                        path="/roles"
+                                        element={<RolePage />}
                                     />
                                 </Routes>
                             </AdminLayout>

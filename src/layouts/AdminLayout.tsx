@@ -21,6 +21,7 @@ import {
     ShoppingCartOutlined,
     FileTextOutlined,
     CreditCardOutlined,
+    TeamOutlined,
 } from "@ant-design/icons";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore";
@@ -73,6 +74,12 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             icon: <UserOutlined />,
             label: "Khách hàng",
             onClick: () => navigate("/customers"),
+        },
+        {
+            key: "roles",
+            icon: <TeamOutlined />,
+            label: "Vai trò",
+            onClick: () => navigate("/roles"),
         },
     ];
 

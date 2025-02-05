@@ -8,7 +8,7 @@ import {
 } from "../entities/product";
 import { getAccessToken } from "../store/useAuthStore";
 
-const API_URL = "https://localhost:7202/api/Products";
+const API_URL = "http://174.138.22.1/api/Products";
 
 export const getAllProducts = async (
     page: number,

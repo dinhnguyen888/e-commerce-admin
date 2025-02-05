@@ -6,7 +6,7 @@ import {
 } from "../entities/category";
 import { getAccessToken } from "../store/useAuthStore";
 
-const API_URL = "https://localhost:7202/api/Category";
+const API_URL = "http://174.138.22.1/api/Category";
 
 export const getAllCategories = async (): Promise<Category[]> => {
     const accessToken = getAccessToken();
