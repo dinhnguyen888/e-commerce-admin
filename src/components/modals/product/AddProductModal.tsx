@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal, Form, Input, InputNumber, Upload, Button } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
-import { createProduct } from "../../../api/product";
+import { createProduct } from "../../../api/productApi";
 
 interface AddProductModalProps {
     visible: boolean;

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Account, AccountPostDto, AccountUpdateDto } from "../entities/account";
 
-const API_URL = "/api/Account";
+const API_URL = "http://174.138.22.1/api/Account";
 
 export const getAllAccounts = async (
     accessToken: string

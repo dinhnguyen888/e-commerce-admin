@@ -5,13 +5,13 @@ import {
     createCategory,
     updateCategory,
     deleteCategory,
-} from "../api/category";
+} from "../api/categoryApi";
 import {
     getAllBanners,
     createBanner,
     updateBanner,
     deleteBanner,
-} from "../api/banner";
+} from "../api/bannerApi";
 import {
     Category,
     CategoryPostDto,

@@ -5,7 +5,12 @@ import { useNavigate } from "react-router-dom";
 import UpdateRoleModal from "../components/modals/role/UpdateRoleModal";
 import AddRoleModal from "../components/modals/role/AddRoleModal";
 // import DeleteRoleModal from "../components/modals/role/DeleteRoleModal";
-import { getAllRoles, createRole, updateRole, deleteRole } from "../api/role";
+import {
+    getAllRoles,
+    createRole,
+    updateRole,
+    deleteRole,
+} from "../api/roleApi";
 import { Role, RolePostDto, RoleUpdateDto } from "../entities/role";
 import DeleteRoleModal from "../components/modals/role/DeleteRoleModal";
 

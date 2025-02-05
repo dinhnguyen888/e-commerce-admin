@@ -2,7 +2,7 @@ import axios from "axios";
 import { Banner, BannerPostDto, BannerUpdateDto } from "../entities/banner";
 import { getAccessToken } from "../store/useAuthStore";
 
-const API_URL = "/api/Banner";
+const API_URL = "http://174.138.22.1/api/Banner";
 
 export const getAllBanners = async (): Promise<Banner[]> => {
     const accessToken = getAccessToken();

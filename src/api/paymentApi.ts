@@ -2,7 +2,7 @@ import axios from "axios";
 import { Payment, PaymentPostDto, PaymentUpdateDto } from "../entities/payment";
 import { getAccessToken } from "../store/useAuthStore";
 
-const API_URL = "/api/Payment";
+const API_URL = "http://174.138.22.1/api/Payment";
 
 export const getAllPayments = async (): Promise<Payment[]> => {
     const accessToken = getAccessToken();

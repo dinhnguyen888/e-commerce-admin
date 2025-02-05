@@ -4,7 +4,7 @@ import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import AddProductModal from "../components/modals/product/AddProductModal";
 import DeleteProductModal from "../components/modals/product/DeleteProductModal";
-import { getAllProducts, deleteProduct } from "../api/product";
+import { getAllProducts, deleteProduct } from "../api/productApi";
 import { ProductGetDto } from "../entities/product";
 
 const { Search } = Input;

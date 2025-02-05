@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Form, Input, InputNumber, Button, Space } from "antd";
 import { useParams, useNavigate } from "react-router-dom";
-import { getProductForUpdating, updateProduct } from "../api/product";
+import { getProductForUpdating, updateProduct } from "../api/productApi";
 import {
     ProductUpdateDto,
     ProductGetDetailDto,

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Table, Card, Button, Space, message } from "antd";
 import { useParams, useNavigate } from "react-router-dom";
-import { getCartByUserId, removeFromCart, clearCart } from "../api/cart";
+import { getCartByUserId, removeFromCart, clearCart } from "../api/cartApi";
 import { Cart } from "../entities/cart";
 
 const UserCartPage: React.FC = () => {

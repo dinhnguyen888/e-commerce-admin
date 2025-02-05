@@ -8,7 +8,7 @@ import {
     getAllPayments,
     deletePayment,
     deletePendingPayment,
-} from "../api/payment";
+} from "../api/paymentApi";
 import { Payment } from "../entities/payment";
 
 const { Search } = Input;

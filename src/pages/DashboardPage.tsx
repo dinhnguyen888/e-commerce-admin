@@ -15,10 +15,10 @@ import {
     Tooltip,
     ResponsiveContainer,
 } from "recharts";
-import { getAllProducts } from "../api/product";
-import { getAllAccounts } from "../api/account";
-import { getAllPayments } from "../api/payment";
-import { getCartByUserId } from "../api/cart";
+import { getAllProducts } from "../api/productApi";
+import { getAllAccounts } from "../api/accountApi";
+import { getAllPayments } from "../api/paymentApi";
+import { getCartByUserId } from "../api/cartApi";
 import { getAccessToken } from "../store/useAuthStore";
 
 const { Title } = Typography;

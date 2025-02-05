@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal, Form, Input, InputNumber, Button } from "antd";
-import { createPayment } from "../../../api/payment";
+import { createPayment } from "../../../api/paymentApi";
 import { PaymentPostDto } from "../../../entities/payment";
 
 interface AddPaymentModalProps {

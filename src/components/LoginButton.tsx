@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "antd";
 import { LoginOutlined } from "@ant-design/icons";
-import { adminLogin } from "../api/login";
+import { adminLogin } from "../api/loginApi";
 
 interface LoginButtonProps {
     email: string;

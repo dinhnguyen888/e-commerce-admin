@@ -10,7 +10,7 @@ import {
     createAccount,
     updateAccount,
     deleteAccount,
-} from "../api/account";
+} from "../api/accountApi";
 import { Account, AccountPostDto, AccountUpdateDto } from "../entities/account";
 import { getAccessToken } from "../store/useAuthStore";
 

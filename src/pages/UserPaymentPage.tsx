@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Table, Card, Button, Space, Tag, message } from "antd";
 import { useParams, useNavigate } from "react-router-dom";
-import { getAllPayments, deletePayment } from "../api/payment";
+import { getAllPayments, deletePayment } from "../api/paymentApi";
 import { Payment } from "../entities/payment";
 
 const UserPaymentPage: React.FC = () => {

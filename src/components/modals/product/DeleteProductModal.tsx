@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal, Button } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
-import { deleteProduct } from "../../../api/product";
+import { deleteProduct } from "../../../api/productApi";
 
 interface DeleteProductModalProps {
     visible: boolean;

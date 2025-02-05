@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Input, InputNumber, Button, Card, message } from "antd";
 import { useNavigate } from "react-router-dom";
-import { createProduct } from "../api/product";
+import { createProduct } from "../api/productApi";
 import { ProductPostDto } from "../entities/product";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";

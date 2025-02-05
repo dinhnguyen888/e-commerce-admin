@@ -2,7 +2,7 @@ import axios from "axios";
 import { Cart } from "../entities/cart";
 import { getAccessToken } from "../store/useAuthStore";
 
-const API_URL = "/api/Cart";
+const API_URL = "http://174.138.22.1/api/Cart";
 
 export const getCartByUserId = async (userId: string): Promise<Cart[]> => {
     const accessToken = getAccessToken();
