@@ -182,7 +182,7 @@ const DashboardSection = ({
                                     outerRadius={80}
                                     label
                                 >
-                                    {bestSellers.map((entry, index) => (
+                                    {bestSellers.map((_, index) => (
                                         <Cell
                                             key={`cell-${index}`}
                                             fill={COLORS[index % COLORS.length]}
