@@ -1,54 +1,142 @@
-# React + TypeScript + Vite
+# Trang Quản Trị E-commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Tổng Quan
 
-Currently, two official plugins are available:
+Đây là trang quản trị (admin dashboard) cho trang thương mại CodeBucket, được xây dựng bằng React và TypeScript. Hệ thống cung cấp giao diện toàn diện để quản lý các khía cạnh khác nhau của nền tảng thương mại điện tử bao gồm sản phẩm, thanh toán, tài khoản người dùng, phân quyền, tin tức và bình luận.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tính Năng
 
-## Expanding the ESLint configuration
+### Xác Thực & Phân Quyền
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+-   Hệ thống đăng nhập bảo mật với JWT
+-   Kiểm soát truy cập dựa trên vai trò
+-   Bảo vệ route cho người dùng đã xác thực
+-   Tự động xử lý làm mới token
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Quản Lý Sản Phẩm
+
+-   Xem danh sách sản phẩm
+-   Thêm/Sửa/Xóa sản phẩm
+-   Quản lý chi tiết sản phẩm
+-   Quản lý bình luận cho sản phẩm
+
+### Quản Lý Người Dùng
+
+-   Quản lý tài khoản
+-   Hệ thống phân quyền theo vai trò
+-   Gán vai trò cho người dùng
+-   Xem và quản lý giỏ hàng của người dùng
+
+### Hệ Thống Thanh Toán
+
+-   Xem tất cả các giao dịch
+-   Quản lý trạng thái thanh toán
+-   Xử lý thanh toán đang chờ
+-   Theo dõi lịch sử thanh toán
+
+### Quản Lý Nội Dung
+
+-   Quản lý bài viết tin tức
+-   Kiểm duyệt bình luận
+-   Soạn thảo văn bản với rich text editor
+
+### Bảng Điều Khiển & Phân Tích
+
+-   Bảng điều khiển bán hàng
+-   Hiển thị dữ liệu bằng biểu đồ
+-   Theo dõi phân tích
+-   Các chỉ số hiệu suất
+
+## Công Nghệ Sử Dụng
+
+### Frontend
+
+-   React 18
+-   TypeScript
+-   Vite (Công cụ build)
+-   React Router v6 (Định tuyến)
+
+### Giao Diện & Style
+
+-   Ant Design (Thư viện UI)
+-   Ant Design Icons
+-   React Quill (Trình soạn thảo văn bản)
+
+### Quản Lý State & API
+
+-   Context API để quản lý state
+-   Axios để gọi API
+-   JWT cho xác thực
+
+### Hiển Thị Dữ Liệu
+
+-   Recharts
+-   Ant Design Plots
+
+### Công Cụ Phát Triển
+
+-   ESLint để kiểm tra code
+-   TypeScript để kiểm tra kiểu dữ liệu
+-   SWC cho biên dịch nhanh
+
+## Bắt Đầu
+
+1. Clone repository
+2. Cài đặt các dependencies:
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. Tạo file `.env` với các biến môi trường:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```env
+VITE_API_URL=url_api_của_bạn
 ```
+
+4. Chạy server phát triển:
+
+```bash
+npm run dev
+```
+
+5. Build cho production:
+
+```bash
+npm run build
+```
+
+## Các Scripts Có Sẵn
+
+-   `npm run dev` - Khởi chạy server phát triển
+-   `npm run build` - Build cho môi trường production
+-   `npm run lint` - Chạy ESLint
+-   `npm run preview` - Xem trước bản build production
+
+## Cấu Trúc Dự Án
+
+```
+src/
+├── components/          # Components có thể tái sử dụng
+│   ├── common/         # Components dùng chung
+│   ├── layout/         # Components layout
+│   ├── modal/          # Components modal
+│   └── section/        # Components section
+├── config/             # File cấu hình
+├── context/            # React Context providers
+├── pages/              # Components trang
+├── services/           # Các service gọi API
+├── types/              # Các type TypeScript
+└── App.tsx            # Component ứng dụng chính
+```
+
+## Tính Năng Bảo Mật
+
+-   Route được bảo vệ với kiểm tra xác thực
+-   Quản lý token JWT
+-   Tự động đăng xuất khi token hết hạn
+-   Giao tiếp API bảo mật với headers xác thực
+
+## Hỗ Trợ Trình Duyệt
+
+-   Các trình duyệt hiện đại (Chrome, Firefox, Safari, Edge)
