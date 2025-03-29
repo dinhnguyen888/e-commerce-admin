@@ -5,6 +5,7 @@ import {
     CreditCardOutlined,
     TeamOutlined,
     FileTextOutlined,
+    PictureOutlined,
 } from "@ant-design/icons";
 
 export const menuItems = [
@@ -19,6 +20,12 @@ export const menuItems = [
         icon: ShoppingCartOutlined,
         label: "Products",
         path: "/products",
+    },
+    {
+        key: "banners",
+        icon: PictureOutlined,
+        label: "Banners",
+        path: "/banners",
     },
     {
         key: "accounts",

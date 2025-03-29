@@ -13,6 +13,7 @@ import { AccountPage } from "./pages/AccountPage";
 import { RolePage } from "./pages/RolePage";
 import NewsPage from "./pages/NewsPage";
 import CommentPage from "./pages/CommentPage";
+import { BannerPage } from "./pages/BannerPage";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import { App as AntApp } from "antd";
 import { ReactNode } from "react";
@@ -71,6 +72,14 @@ const AppRoutes = () => {
                 element={
                     <ProtectedRoute>
                         <CommentPage />
+                    </ProtectedRoute>
+                }
+            />
+            <Route
+                path="/banners"
+                element={
+                    <ProtectedRoute>
+                        <BannerPage />
                     </ProtectedRoute>
                 }
             />
